@@ -14,7 +14,10 @@ export default async function Nav() {
                 <h1 className="sendit-link">Send it</h1>
             </Link>
             <ul className="signIn">
-                <Login />
+                {/* only want to see login page if user is not signed in */}
+                {!session?.user && <Login />}
+                {/* show user's name */}
+                {session?.user && <h1>{session.user.name}</h1>}
             </ul>
         </nav>
     )
